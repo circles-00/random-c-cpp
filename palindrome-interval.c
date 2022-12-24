@@ -13,12 +13,10 @@ int findReverseNumber(int input) {
 int isPalindrome(int input) { return input == findReverseNumber(input); }
 
 int containsDigits(int input) {
-  while (input) {
-    if (input % 10 > 4) return 0;
-    input /= 10;
-  }
+  if (!input) return 1;
 
-  return 1;
+  if (input % 10 > 4) return 0;
+  return containsDigits(input / 10);
 }
 
 int main(void) {
